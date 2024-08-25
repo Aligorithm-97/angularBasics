@@ -1,0 +1,14 @@
+<div>
+    <input [(ngModel)] = "newAppointmentTitle" placeholder="appdesc" type="text">
+    <input [(ngModel)] = "newAppointmentDate" placeholder="appdate" type="date">
+    <button (click)="addAppointment()">Add</button>
+</div>
+
+<ul>
+    @for (appointment of appointments; track appointment.id; let i = $index) {
+        <li>{{ appointment.title }} {{appointment.date }}</li>
+        <button (click)="deleteAppointment(i)">Delete</button>
+        } @empty {
+        <li>There are no items.</li>
+        }
+</ul>
